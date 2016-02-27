@@ -14,14 +14,14 @@ static void loadPreset_rec(
   {
     State::Address next = current;
     next.path.push_back(key);
-    auto& val = currentObj[key];
+    const auto& val = currentObj[key];
     if(val.isObject())
     {
       loadPreset_rec(preset, next, val.toObject());
     }
     else
     {
-      preset.emplace_back(next, State::convert::toValue(val));
+      preset.emplace_back(next, State::convert::fromQJsonValue(val));
     }
   }
 }
