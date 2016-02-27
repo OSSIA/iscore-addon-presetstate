@@ -7,7 +7,9 @@
 
 namespace PresetState
 {
-InspectorWidget::InspectorWidget(
+namespace Inspector
+{
+Widget::Widget(
         const PresetState::Model& model,
         const iscore::DocumentContext& doc,
         QWidget* parent) :
@@ -20,7 +22,7 @@ InspectorWidget::InspectorWidget(
 
     m_edit = new QLineEdit{process().file()};
     connect(m_edit, &QLineEdit::editingFinished,
-            this, &InspectorWidget::on_textChange);
+            this, &Widget::on_textChange);
 
     con(process(), &Model::fileChanged,
         this, [&] {
@@ -31,7 +33,7 @@ InspectorWidget::InspectorWidget(
     this->setLayout(lay);
 }
 
-void InspectorWidget::on_textChange()
+void Widget::on_textChange()
 {
     auto newTxt = m_edit->text();
     if(newTxt == process().file())
@@ -40,5 +42,6 @@ void InspectorWidget::on_textChange()
     auto cmd = new SetPresetFile{process(), newTxt};
 
     m_dispatcher.submitCommand(cmd);
+}
 }
 }

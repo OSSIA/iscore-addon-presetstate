@@ -2,6 +2,7 @@
 #include <PresetState/Inspector/WidgetFactory.hpp>
 #include <PresetState/Commands/PresetStateCommandFactoryKey.hpp>
 #include <PresetState/Factory.hpp>
+#include <PresetState/Executor/StateComponent.hpp>
 
 #include <Inspector/InspectorWidgetFactoryInterface.hpp>
 #include <Process/ProcessFactory.hpp>
@@ -31,9 +32,9 @@ std::vector<std::unique_ptr<iscore::FactoryInterfaceBase>> iscore_addon_presetst
         FW<Process::StateProcessFactory,
              PresetState::Factory>,
         FW<Process::StateProcessInspectorWidgetDelegateFactory,
-             PresetState::InspectorFactory>/*,
+             PresetState::Inspector::Factory>,
         FW<RecreateOnPlay::StateProcessComponentFactory,
-             JS::Executor::StateProcessComponentFactory>*/
+             PresetState::Executor::StateProcessComponentFactory>
     >>(ctx, key);
 }
 

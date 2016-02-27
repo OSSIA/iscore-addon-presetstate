@@ -11,7 +11,7 @@ set(HDRS
   "${CMAKE_CURRENT_SOURCE_DIR}/PresetState/Factory.hpp"
   "${CMAKE_CURRENT_SOURCE_DIR}/PresetState/Metadata.hpp"
   "${CMAKE_CURRENT_SOURCE_DIR}/PresetState/Model.hpp"
-  "${CMAKE_CURRENT_SOURCE_DIR}/PresetState/PresetStateLoader.hpp"
+  "${CMAKE_CURRENT_SOURCE_DIR}/PresetState/Preset.hpp"
   "${CMAKE_CURRENT_SOURCE_DIR}/PresetState/Inspector/Widget.hpp"
   "${CMAKE_CURRENT_SOURCE_DIR}/PresetState/Inspector/WidgetFactory.hpp"
   "${CMAKE_CURRENT_SOURCE_DIR}/PresetState/Executor/StateComponent.hpp"
@@ -22,7 +22,7 @@ set(HDRS
 set(SRCS
   "${CMAKE_CURRENT_SOURCE_DIR}/PresetState/Factory.cpp"
   "${CMAKE_CURRENT_SOURCE_DIR}/PresetState/Model.cpp"
-  "${CMAKE_CURRENT_SOURCE_DIR}/PresetState/PresetStateLoader.cpp"
+  "${CMAKE_CURRENT_SOURCE_DIR}/PresetState/Preset.cpp"
   "${CMAKE_CURRENT_SOURCE_DIR}/PresetState/Inspector/Widget.cpp"
   "${CMAKE_CURRENT_SOURCE_DIR}/PresetState/Inspector/WidgetFactory.cpp"
   "${CMAKE_CURRENT_SOURCE_DIR}/PresetState/Executor/StateComponent.cpp"

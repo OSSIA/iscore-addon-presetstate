@@ -1,6 +1,7 @@
 #pragma once
 #include <Process/StateProcess.hpp>
 #include <PresetState/Metadata.hpp>
+#include <PresetState/Preset.hpp>
 namespace PresetState
 {
 class Model :
@@ -37,6 +38,9 @@ class Model :
         const QString& file() const
         { return m_file; }
 
+        const Preset& preset() const
+        { return m_preset; }
+
         UuidKey<Process::StateProcessFactory> concreteFactoryKey() const override
         {
             return Metadata<ConcreteFactoryKey_k, Model>::get();
@@ -60,5 +64,6 @@ class Model :
         }
 
         QString m_file;
+        Preset m_preset;
 };
 }

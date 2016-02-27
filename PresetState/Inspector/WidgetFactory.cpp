@@ -5,31 +5,33 @@
 
 namespace PresetState
 {
-
-InspectorFactory::InspectorFactory()
+namespace Inspector
+{
+Factory::Factory()
 {
 
 }
 
-InspectorFactory::~InspectorFactory()
+Factory::~Factory()
 {
 
 }
 
-Process::StateProcessInspectorWidgetDelegate* InspectorFactory::make(
+Process::StateProcessInspectorWidgetDelegate* Factory::make(
         const Process::StateProcess& process,
         const iscore::DocumentContext& doc,
         QWidget* parent) const
 {
-    return new InspectorWidget{
+    return new Widget{
         static_cast<const PresetState::Model&>(process),
                 doc,
                 parent};
 }
 
-bool InspectorFactory::matches(const Process::StateProcess& process) const
+bool Factory::matches(const Process::StateProcess& process) const
 {
     return dynamic_cast<const PresetState::Model*>(&process);
 }
 
+}
 }

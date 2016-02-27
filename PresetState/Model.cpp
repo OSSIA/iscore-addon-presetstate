@@ -1,6 +1,6 @@
 #include "Model.hpp"
 #include <iscore/serialization/VisitorCommon.hpp>
-
+#include <QFile>
 template<>
 void Visitor<Reader<DataStream>>::readFrom_impl(
         const PresetState::Model& proc)
@@ -43,6 +43,13 @@ Model::Model(const Id<Process::StateProcess> &id, QObject *parent):
 void Model::setFile(const QString& script)
 {
     m_file = script;
+
+    QFile f{m_file};
+    if(f.open(QFile::ReadOnly))
+    {
+        m_preset = loadPresetFromJson(f.readAll());
+    }
+
     emit fileChanged();
 }
 

@@ -12,11 +12,13 @@ struct DocumentContext;
 namespace PresetState
 {
 class Model;
-class InspectorWidget final :
+namespace Inspector
+{
+class Widget final :
         public Process::StateProcessInspectorWidgetDelegate_T<PresetState::Model>
 {
     public:
-        explicit InspectorWidget(
+        explicit Widget(
                 const PresetState::Model& object,
                 const iscore::DocumentContext& context,
                 QWidget* parent);
@@ -28,5 +30,5 @@ class InspectorWidget final :
 
         CommandDispatcher<> m_dispatcher;
 };
-
+}
 }
