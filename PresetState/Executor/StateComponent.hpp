@@ -1,7 +1,7 @@
 #pragma once
 #include <QString>
 #include <memory>
-#include <Editor/State.h>
+
 #include <OSSIA/Executor/ProcessElement.hpp>
 #include <OSSIA/Executor/ExecutorContext.hpp>
 #include <iscore/document/DocumentContext.hpp>

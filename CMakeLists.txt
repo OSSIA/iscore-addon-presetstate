@@ -1,10 +1,13 @@
 cmake_minimum_required(VERSION 3.1)
+if(NOT TARGET iscore_plugin_ossia)
+    return()
+endif()
 project(iscore_addon_presetstate LANGUAGES CXX)
 
 iscore_common_setup()
 
 # Packages
-find_package(Qt5 5.3 REQUIRED COMPONENTS Core)
+find_package(Qt5 5.3 REQUIRED COMPONENTS Core Widgets)
 
 # Files & main target
 set(HDRS
@@ -36,5 +39,6 @@ add_library(${PROJECT_NAME} ${SRCS} ${HDRS})
 iscore_generate_command_list_file(${PROJECT_NAME} "${HDRS}")
 
 target_link_libraries(${PROJECT_NAME} PUBLIC
-  Qt5::Core iscore_lib_process iscore_lib_inspector iscore_plugin_ossia)
+  Qt5::Core Qt5::Widgets
+  iscore_lib_process iscore_lib_inspector iscore_plugin_ossia)
 setup_iscore_plugin(${PROJECT_NAME})
