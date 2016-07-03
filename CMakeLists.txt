@@ -23,7 +23,6 @@ set(HDRS
   "${CMAKE_CURRENT_SOURCE_DIR}/iscore_addon_presetstate.hpp"
 )
 set(SRCS
-  "${CMAKE_CURRENT_SOURCE_DIR}/PresetState/Factory.cpp"
   "${CMAKE_CURRENT_SOURCE_DIR}/PresetState/Model.cpp"
   "${CMAKE_CURRENT_SOURCE_DIR}/PresetState/Preset.cpp"
   "${CMAKE_CURRENT_SOURCE_DIR}/PresetState/Inspector/Widget.cpp"
