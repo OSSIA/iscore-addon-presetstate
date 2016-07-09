@@ -45,8 +45,7 @@ class StateProcessComponentFactory final :
 
         bool matches(
                 Process::StateProcess& proc,
-                const RecreateOnPlay::DocumentPlugin&,
-                const iscore::DocumentContext &) const override;
+                const RecreateOnPlay::DocumentPlugin&) const override;
 
         std::shared_ptr<OSSIA::StateElement> make(
                 Process::StateProcess& proc,

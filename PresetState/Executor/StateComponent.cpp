@@ -75,8 +75,7 @@ StateProcessComponentFactory::concreteFactoryKey() const
 
 bool StateProcessComponentFactory::matches(
         Process::StateProcess& proc,
-        const RecreateOnPlay::DocumentPlugin&,
-        const iscore::DocumentContext&) const
+        const RecreateOnPlay::DocumentPlugin&) const
 {
     return dynamic_cast<Model*>(&proc);
 }
