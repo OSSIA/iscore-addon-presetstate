@@ -30,11 +30,6 @@ class StateProcessComponent final :
                 Process::StateProcess& proc,
                 const RecreateOnPlay::Context& ctxt);
 };
-
-EXECUTOR_STATE_PROCESS_COMPONENT_FACTORY(
-        StateProcessComponentFactory,
-        "b76014d1-d822-4323-a30a-946b26f41cf0",
-        StateProcessComponent,
-        PresetState::Model)
+using StateProcessComponentFactory = ::RecreateOnPlay::StateProcessComponentFactory_T<StateProcessComponent>;
 }
 }

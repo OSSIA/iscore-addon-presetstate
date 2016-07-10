@@ -9,7 +9,7 @@ namespace Inspector
 class Factory final :
         public Process::StateProcessInspectorWidgetDelegateFactory
 {
-        ISCORE_CONCRETE_FACTORY_DECL("577bc362-e279-488c-b0ac-5972851ea291")
+        ISCORE_CONCRETE_FACTORY("577bc362-e279-488c-b0ac-5972851ea291")
     public:
         Factory();
         virtual ~Factory();
