@@ -4,18 +4,20 @@
 
 #include <OSSIA/Executor/ProcessElement.hpp>
 #include <OSSIA/Executor/ExecutorContext.hpp>
+#include <OSSIA/Executor/StateProcessComponent.hpp>
 #include <iscore/document/DocumentContext.hpp>
 #include <iscore/document/DocumentInterface.hpp>
 #include <PresetState/Preset.hpp>
+#include <PresetState/Model.hpp>
 
 namespace PresetState
 {
-class Model;
 namespace Executor
 {
 class StateProcessComponent final :
-        public RecreateOnPlay::StateProcessComponent
+        public RecreateOnPlay::StateProcessComponent_T<PresetState::Model>
 {
+        COMPONENT_METADATA("b76014d1-d822-4323-a30a-946b26f41cf0")
     public:
         StateProcessComponent(
                 RecreateOnPlay::StateElement& parentState,
@@ -24,32 +26,15 @@ class StateProcessComponent final :
                 const Id<iscore::Component>& id,
                 QObject* parent);
 
-    private:
-        const Key &key() const override;
+        static std::shared_ptr<OSSIA::StateElement> make(
+                Process::StateProcess& proc,
+                const RecreateOnPlay::Context& ctxt);
 };
 
-class StateProcessComponentFactory final :
-        public RecreateOnPlay::StateProcessComponentFactory
-{
-    public:
-        virtual ~StateProcessComponentFactory();
-
-        RecreateOnPlay::StateProcessComponent* make(
-                RecreateOnPlay::StateElement& cst,
-                Process::StateProcess& proc,
-                const RecreateOnPlay::Context& ctx,
-                const Id<iscore::Component>& id,
-                QObject* parent) const override;
-
-        const ConcreteFactoryKey& concreteFactoryKey() const override;
-
-        bool matches(
-                Process::StateProcess& proc,
-                const RecreateOnPlay::DocumentPlugin&) const override;
-
-        std::shared_ptr<OSSIA::StateElement> make(
-                Process::StateProcess& proc,
-                const RecreateOnPlay::Context& ctxt) const override;
-};
+EXECUTOR_STATE_PROCESS_COMPONENT_FACTORY(
+        StateProcessComponentFactory,
+        "b76014d1-d822-4323-a30a-946b26f41cf0",
+        StateProcessComponent,
+        PresetState::Model)
 }
 }

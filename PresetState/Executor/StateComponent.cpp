@@ -30,8 +30,8 @@ StateProcessComponent::StateProcessComponent(
         const RecreateOnPlay::Context& ctx,
         const Id<iscore::Component>& id,
         QObject* parent):
-    RecreateOnPlay::StateProcessComponent{
-        parentConstraint, element, id, "PresetStateComponent", parent}
+    RecreateOnPlay::StateProcessComponent_T<PresetState::Model>{
+        parentConstraint, element, ctx, id, "PresetStateComponent", parent}
 {
     auto state = OSSIA::State::create();
 
@@ -41,48 +41,9 @@ StateProcessComponent::StateProcessComponent(
     m_ossia_process = state;
 }
 
-const iscore::Component::Key& StateProcessComponent::key() const
-{
-    // TODO these should be uuids !!!!!
-    static iscore::Component::Key k("a59c1b9a-c7aa-41b0-a521-26d364670188");
-    return k;
-}
-
-
-
-//// Factory ////
-StateProcessComponentFactory::~StateProcessComponentFactory()
-{
-
-}
-
-RecreateOnPlay::StateProcessComponent* StateProcessComponentFactory::make(
-        RecreateOnPlay::StateElement& cst,
-        Process::StateProcess& proc,
-        const RecreateOnPlay::Context& ctx,
-        const Id<iscore::Component>& id,
-        QObject* parent) const
-{
-    return new StateProcessComponent{cst, static_cast<Model&>(proc), ctx, id, parent};
-}
-
-const StateProcessComponentFactory::ConcreteFactoryKey&
-StateProcessComponentFactory::concreteFactoryKey() const
-{
-    static ConcreteFactoryKey k("ec509448-d97a-4145-801b-1b06ecde4430");
-    return k;
-}
-
-bool StateProcessComponentFactory::matches(
-        Process::StateProcess& proc,
-        const RecreateOnPlay::DocumentPlugin&) const
-{
-    return dynamic_cast<Model*>(&proc);
-}
-
-std::shared_ptr<OSSIA::StateElement> StateProcessComponentFactory::make(
+std::shared_ptr<OSSIA::StateElement> StateProcessComponent::make(
         Process::StateProcess &proc,
-        const RecreateOnPlay::Context &ctx) const
+        const RecreateOnPlay::Context &ctx)
 {
     auto state = OSSIA::State::create();
     convert(static_cast<Model&>(proc).preset(), *state, ctx.devices.list());
