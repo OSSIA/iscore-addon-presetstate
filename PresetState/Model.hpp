@@ -10,7 +10,9 @@ class Model :
         Q_OBJECT
         ISCORE_SERIALIZE_FRIENDS(PresetState::Model, DataStream)
         ISCORE_SERIALIZE_FRIENDS(PresetState::Model, JSONObject)
-    public:
+        MODEL_METADATA_IMPL(Model)
+
+        public:
         explicit Model(
                 const Id<Process::StateProcess>& id,
                 QObject* parent);
@@ -41,23 +43,10 @@ class Model :
         const Preset& preset() const
         { return m_preset; }
 
-        UuidKey<Process::StateProcessFactory> concreteFactoryKey() const override
-        {
-            return Metadata<ConcreteFactoryKey_k, Model>::get();
-        }
-        void serialize_impl(const VisitorVariant& vis) const override;
-
     signals:
         void fileChanged();
 
     private:
-        StateProcess* clone(
-                const Id<Process::StateProcess>& newId,
-                QObject* newParent) const override
-        {
-            return new Model {*this, newId, newParent};
-        }
-
         QString prettyName() const override
         {
             return Metadata<PrettyName_k, Model>::get();

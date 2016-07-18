@@ -53,8 +53,4 @@ void Model::setFile(const QString& script)
     emit fileChanged();
 }
 
-void Model::serialize_impl(const VisitorVariant &vis) const
-{
-    serialize_dyn(vis, *this);
-}
 }
