@@ -19,7 +19,7 @@ static void convert(
     {
         auto mess = iscore::convert::message(message, lst);
         if(mess)
-            state.stateElements().push_back(std::move(mess));
+            state.children.push_back(std::move(*mess));
     }
 }
 
@@ -33,20 +33,20 @@ StateProcessComponent::StateProcessComponent(
     RecreateOnPlay::StateProcessComponent_T<PresetState::Model>{
         parentConstraint, element, ctx, id, "PresetStateComponent", parent}
 {
-    auto state = OSSIA::State::create();
+    OSSIA::State state;
 
     // We just add messages
-    convert(element.preset(), *state, ctx.devices.list());
+    convert(element.preset(), state, ctx.devices.list());
 
-    m_ossia_process = state;
+    m_ossia_state = std::move(state);
 }
 
-std::shared_ptr<OSSIA::StateElement> StateProcessComponent::make(
+OSSIA::StateElement StateProcessComponent::make(
         Process::StateProcess &proc,
         const RecreateOnPlay::Context &ctx)
 {
-    auto state = OSSIA::State::create();
-    convert(static_cast<Model&>(proc).preset(), *state, ctx.devices.list());
+    OSSIA::State state;
+    convert(static_cast<Model&>(proc).preset(), state, ctx.devices.list());
     return state;
 }
 

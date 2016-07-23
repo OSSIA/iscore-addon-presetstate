@@ -26,7 +26,7 @@ class StateProcessComponent final :
                 const Id<iscore::Component>& id,
                 QObject* parent);
 
-        static std::shared_ptr<OSSIA::StateElement> make(
+        static OSSIA::StateElement make(
                 Process::StateProcess& proc,
                 const RecreateOnPlay::Context& ctxt);
 };
