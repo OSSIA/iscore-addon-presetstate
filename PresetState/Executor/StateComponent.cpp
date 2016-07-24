@@ -17,9 +17,7 @@ static void convert(
 {
     for(auto& message : p)
     {
-        auto mess = iscore::convert::message(message, lst);
-        if(mess)
-            state.children.push_back(std::move(*mess));
+        state.add(iscore::convert::message(message, lst));
     }
 }
 
