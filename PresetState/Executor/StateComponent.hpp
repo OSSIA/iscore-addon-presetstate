@@ -26,7 +26,7 @@ class StateProcessComponent final :
                 const Id<iscore::Component>& id,
                 QObject* parent);
 
-        static OSSIA::StateElement make(
+        static ossia::state_element make(
                 Process::StateProcess& proc,
                 const RecreateOnPlay::Context& ctxt);
 };

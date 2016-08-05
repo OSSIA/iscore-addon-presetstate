@@ -2,7 +2,7 @@
 #include <Explorer/DocumentPlugin/DeviceDocumentPlugin.hpp>
 #include <OSSIA/iscore2OSSIA.hpp>
 #include <PresetState/Model.hpp>
-#include <Editor/Message.h>
+#include <ossia/editor/state/state_element.hpp>
 #include <OSSIA/iscore2OSSIA.hpp>
 
 
@@ -12,7 +12,7 @@ namespace Executor
 {
 static void convert(
         const Preset& p,
-        OSSIA::State& state,
+        ossia::state& state,
         const Device::DeviceList& lst)
 {
     for(auto& message : p)
@@ -31,7 +31,7 @@ StateProcessComponent::StateProcessComponent(
     RecreateOnPlay::StateProcessComponent_T<PresetState::Model>{
         parentConstraint, element, ctx, id, "PresetStateComponent", parent}
 {
-    OSSIA::State state;
+    ossia::state state;
 
     // We just add messages
     convert(element.preset(), state, ctx.devices.list());
@@ -39,11 +39,11 @@ StateProcessComponent::StateProcessComponent(
     m_ossia_state = std::move(state);
 }
 
-OSSIA::StateElement StateProcessComponent::make(
+ossia::state_element StateProcessComponent::make(
         Process::StateProcess &proc,
         const RecreateOnPlay::Context &ctx)
 {
-    OSSIA::State state;
+    ossia::state state;
     convert(static_cast<Model&>(proc).preset(), state, ctx.devices.list());
     return state;
 }
