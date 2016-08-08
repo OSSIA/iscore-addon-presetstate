@@ -33,7 +33,7 @@ std::vector<std::unique_ptr<iscore::FactoryInterfaceBase>> iscore_addon_presetst
              PresetState::Factory>,
         FW<Process::StateProcessInspectorWidgetDelegateFactory,
              PresetState::Inspector::Factory>,
-        FW<RecreateOnPlay::StateProcessComponentFactory,
+        FW<Engine::Execution::StateProcessComponentFactory,
              PresetState::Executor::StateProcessComponentFactory>
     >>(ctx, key);
 }
