@@ -26,7 +26,6 @@ set(SRCS
   "${CMAKE_CURRENT_SOURCE_DIR}/PresetState/Model.cpp"
   "${CMAKE_CURRENT_SOURCE_DIR}/PresetState/Preset.cpp"
   "${CMAKE_CURRENT_SOURCE_DIR}/PresetState/Inspector/Widget.cpp"
-  "${CMAKE_CURRENT_SOURCE_DIR}/PresetState/Inspector/WidgetFactory.cpp"
   "${CMAKE_CURRENT_SOURCE_DIR}/PresetState/Executor/StateComponent.cpp"
   "${CMAKE_CURRENT_SOURCE_DIR}/PresetState/Commands/SetPresetFile.cpp"
   "${CMAKE_CURRENT_SOURCE_DIR}/PresetState/Commands/PresetStateCommandFactoryKey.cpp"
