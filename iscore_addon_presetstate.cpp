@@ -22,9 +22,9 @@ iscore_addon_presetstate::~iscore_addon_presetstate()
 
 }
 
-std::vector<std::unique_ptr<iscore::FactoryInterfaceBase>> iscore_addon_presetstate::factories(
+std::vector<std::unique_ptr<iscore::InterfaceBase>> iscore_addon_presetstate::factories(
         const iscore::ApplicationContext& ctx,
-        const iscore::AbstractFactoryKey& key) const
+        const iscore::InterfaceKey& key) const
 {
     return instantiate_factories<
             iscore::ApplicationContext,

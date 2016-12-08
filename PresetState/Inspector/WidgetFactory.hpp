@@ -10,7 +10,7 @@ namespace Inspector
 class Factory final :
         public Process::StateProcessInspectorWidgetDelegateFactory_T<Model, Widget>
 {
-        ISCORE_CONCRETE_FACTORY("577bc362-e279-488c-b0ac-5972851ea291")
+        ISCORE_CONCRETE("577bc362-e279-488c-b0ac-5972851ea291")
 };
 }
 }
