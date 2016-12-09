@@ -1,7 +1,7 @@
 #include "PresetStateCommandFactoryKey.hpp"
 #include <iscore/command/Command.hpp>
 
-const CommandParentFactoryKey& PresetState::CommandFactoryName() {
-    static const CommandParentFactoryKey key{"PresetState"};
+const CommandGroupKey& PresetState::CommandFactoryName() {
+    static const CommandGroupKey key{"PresetState"};
     return key;
 }

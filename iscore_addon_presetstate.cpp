@@ -38,10 +38,10 @@ std::vector<std::unique_ptr<iscore::InterfaceBase>> iscore_addon_presetstate::fa
     >>(ctx, key);
 }
 
-std::pair<const CommandParentFactoryKey, CommandGeneratorMap> iscore_addon_presetstate::make_commands()
+std::pair<const CommandGroupKey, CommandGeneratorMap> iscore_addon_presetstate::make_commands()
 {
     using namespace PresetState;
-    std::pair<const CommandParentFactoryKey, CommandGeneratorMap> cmds{
+    std::pair<const CommandGroupKey, CommandGeneratorMap> cmds{
         PresetState::CommandFactoryName(),
                 CommandGeneratorMap{}};
 

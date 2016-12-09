@@ -2,5 +2,5 @@
 #include <iscore/command/Command.hpp>
 
 namespace PresetState {
-const CommandParentFactoryKey& CommandFactoryName();
+const CommandGroupKey& CommandFactoryName();
 }
