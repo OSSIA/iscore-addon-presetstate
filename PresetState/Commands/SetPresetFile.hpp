@@ -1,6 +1,6 @@
 #pragma once
 #include <PresetState/Commands/PresetStateCommandFactoryKey.hpp>
-#include <iscore/command/SerializableCommand.hpp>
+#include <iscore/command/Command.hpp>
 #include <QString>
 
 #include <iscore/tools/ModelPath.hpp>
@@ -8,7 +8,7 @@
 namespace PresetState
 {
 class Model;
-class SetPresetFile final : public iscore::SerializableCommand
+class SetPresetFile final : public iscore::Command
 {
         ISCORE_COMMAND_DECL(PresetState::CommandFactoryName(), SetPresetFile, "Load a preset")
     public:
