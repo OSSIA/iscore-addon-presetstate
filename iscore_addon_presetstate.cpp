@@ -28,14 +28,13 @@ std::vector<std::unique_ptr<iscore::InterfaceBase>> iscore_addon_presetstate::fa
 {
     return instantiate_factories<
             iscore::ApplicationContext,
-    TL<
         FW<Process::StateProcessFactory,
              PresetState::Factory>,
         FW<Process::StateProcessInspectorWidgetDelegateFactory,
              PresetState::Inspector::Factory>,
         FW<Engine::Execution::StateProcessComponentFactory,
              PresetState::Executor::StateProcessComponentFactory>
-    >>(ctx, key);
+    >(ctx, key);
 }
 
 std::pair<const CommandGroupKey, CommandGeneratorMap> iscore_addon_presetstate::make_commands()

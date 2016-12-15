@@ -3,7 +3,7 @@
 #include <iscore/command/Command.hpp>
 #include <QString>
 
-#include <iscore/tools/ModelPath.hpp>
+#include <iscore/model/path/Path.hpp>
 
 namespace PresetState
 {
