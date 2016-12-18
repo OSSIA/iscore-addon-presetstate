@@ -25,6 +25,7 @@ class iscore_addon_presetstate final:
                 iscore::FactoryInterface_QtInterface
                 iscore::CommandFactory_QtInterface
                 )
+  ISCORE_PLUGIN_METADATA(1, "8da162be-f8fb-4958-a49a-9e9571c5d969")
 
     public:
         iscore_addon_presetstate();
@@ -38,7 +39,4 @@ class iscore_addon_presetstate final:
 
         // CommandFactory_QtInterface interface
         std::pair<const CommandGroupKey, CommandGeneratorMap> make_commands() override;
-
-        iscore::Version version() const override;
-        UuidKey<iscore::Plugin> key() const override;
 };

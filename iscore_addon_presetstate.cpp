@@ -53,12 +53,3 @@ std::pair<const CommandGroupKey, CommandGeneratorMap> iscore_addon_presetstate::
     return cmds;
 }
 
-iscore::Version iscore_addon_presetstate::version() const
-{
-    return iscore::Version{1};
-}
-
-UuidKey<iscore::Plugin> iscore_addon_presetstate::key() const
-{
-    return_uuid("8da162be-f8fb-4958-a49a-9e9571c5d969");
-}
