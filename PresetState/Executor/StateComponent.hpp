@@ -2,7 +2,7 @@
 #include <QString>
 #include <memory>
 
-#include <Engine/Executor/ProcessElement.hpp>
+#include <Engine/Executor/ProcessComponent.hpp>
 #include <Engine/Executor/ExecutorContext.hpp>
 #include <Engine/Executor/StateProcessComponent.hpp>
 #include <iscore/document/DocumentContext.hpp>
