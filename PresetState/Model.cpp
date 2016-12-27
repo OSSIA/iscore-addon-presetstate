@@ -1,16 +1,17 @@
 #include "Model.hpp"
 #include <iscore/serialization/VisitorCommon.hpp>
 #include <QFile>
-template<>
-void Visitor<Reader<DataStream>>::readFrom_impl(
+
+template <>
+void DataStreamReader::read(
         const PresetState::Model& proc)
 {
     m_stream << proc.m_file;
     insertDelimiter();
 }
 
-template<>
-void Visitor<Writer<DataStream>>::writeTo(PresetState::Model& proc)
+template <>
+void DataStreamWriter::writeTo(PresetState::Model& proc)
 {
     QString str;
     m_stream >> str;
@@ -19,16 +20,16 @@ void Visitor<Writer<DataStream>>::writeTo(PresetState::Model& proc)
     checkDelimiter();
 }
 
-template<>
-void Visitor<Reader<JSONObject>>::readFrom_impl(const PresetState::Model& proc)
+template <>
+void JSONObjectReader::read(const PresetState::Model& proc)
 {
-    m_obj["File"] = proc.m_file;
+    obj["File"] = proc.m_file;
 }
 
-template<>
-void Visitor<Writer<JSONObject>>::writeTo(PresetState::Model& proc)
+template <>
+void JSONObjectWriter::writeTo(PresetState::Model& proc)
 {
-    proc.setFile(m_obj["File"].toString());
+    proc.setFile(obj["File"].toString());
 }
 
 

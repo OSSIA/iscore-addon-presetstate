@@ -8,8 +8,7 @@ class Model :
         public Process::StateProcess
 {
         Q_OBJECT
-        ISCORE_SERIALIZE_FRIENDS(PresetState::Model, DataStream)
-        ISCORE_SERIALIZE_FRIENDS(PresetState::Model, JSONObject)
+        ISCORE_SERIALIZE_FRIENDS
         MODEL_METADATA_IMPL(Model)
 
         public:
@@ -28,7 +27,7 @@ class Model :
 
         template<typename Impl>
         explicit Model(
-                Deserializer<Impl>& vis,
+                Impl& vis,
                 QObject* parent) :
             Process::StateProcess{vis, parent}
         {
