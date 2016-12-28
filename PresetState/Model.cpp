@@ -11,7 +11,7 @@ void DataStreamReader::read(
 }
 
 template <>
-void DataStreamWriter::writeTo(PresetState::Model& proc)
+void DataStreamWriter::write(PresetState::Model& proc)
 {
     QString str;
     m_stream >> str;
@@ -27,7 +27,7 @@ void JSONObjectReader::read(const PresetState::Model& proc)
 }
 
 template <>
-void JSONObjectWriter::writeTo(PresetState::Model& proc)
+void JSONObjectWriter::write(PresetState::Model& proc)
 {
     proc.setFile(obj["File"].toString());
 }
