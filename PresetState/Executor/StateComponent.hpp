@@ -20,7 +20,7 @@ class StateProcessComponent final :
         COMPONENT_METADATA("b76014d1-d822-4323-a30a-946b26f41cf0")
     public:
         StateProcessComponent(
-                Engine::Execution::StateElement& parentState,
+                Engine::Execution::StateComponent& parentState,
                 PresetState::Model& element,
                 const Engine::Execution::Context& ctx,
                 const Id<iscore::Component>& id,
