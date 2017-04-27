@@ -9,7 +9,7 @@ class Model :
 {
         Q_OBJECT
         ISCORE_SERIALIZE_FRIENDS
-        MODEL_METADATA_IMPL(Model)
+        PROCESS_METADATA_IMPL(Model)
 
         public:
         explicit Model(
