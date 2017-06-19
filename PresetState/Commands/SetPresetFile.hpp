@@ -13,12 +13,12 @@ class SetPresetFile final : public iscore::Command
         ISCORE_COMMAND_DECL(PresetState::CommandFactoryName(), SetPresetFile, "Load a preset")
     public:
         SetPresetFile(
-                Path<Model>&& model,
+                const Model& model,
                 const QString& text);
 
     private:
-        void undo() const override;
-        void redo() const override;
+        void undo(const iscore::DocumentContext& ctx) const override;
+        void redo(const iscore::DocumentContext& ctx) const override;
 
         void serializeImpl(DataStreamInput & s) const override;
         void deserializeImpl(DataStreamOutput & s) override;

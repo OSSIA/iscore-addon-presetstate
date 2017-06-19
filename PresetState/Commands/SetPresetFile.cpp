@@ -7,22 +7,22 @@
 namespace PresetState
 {
 SetPresetFile::SetPresetFile(
-    Path<Model>&& model,
+    const Model& model,
     const QString& text):
-  m_model{std::move(model)},
+  m_model{model},
   m_new{text}
 {
-    m_old = m_model.find().file();
+    m_old = model.file();
 }
 
-void SetPresetFile::undo() const
+void SetPresetFile::undo(const iscore::DocumentContext& ctx) const
 {
-    m_model.find().setFile(m_old);
+    m_model.find(ctx).setFile(m_old);
 }
 
-void SetPresetFile::redo() const
+void SetPresetFile::redo(const iscore::DocumentContext& ctx) const
 {
-    m_model.find().setFile(m_new);
+    m_model.find(ctx).setFile(m_new);
 }
 
 void SetPresetFile::serializeImpl(DataStreamInput& s) const
