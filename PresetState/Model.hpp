@@ -1,35 +1,27 @@
 #pragma once
-#include <Process/StateProcess.hpp>
+#include <Process/Process.hpp>
 #include <PresetState/Metadata.hpp>
 #include <PresetState/Preset.hpp>
 namespace PresetState
 {
 class Model :
-        public Process::StateProcess
+        public Process::ProcessModel
 {
         Q_OBJECT
-        ISCORE_SERIALIZE_FRIENDS
+        SCORE_SERIALIZE_FRIENDS
         PROCESS_METADATA_IMPL(Model)
 
         public:
         explicit Model(
-                const Id<Process::StateProcess>& id,
+                TimeVal t,
+                const Id<Process::ProcessModel>& id,
                 QObject* parent);
-
-        explicit Model(
-                const Model& source,
-                const Id<Process::StateProcess>& id,
-                QObject* parent):
-            Process::StateProcess{id, Metadata<ObjectKey_k, Model>::get(), parent}
-        {
-            setFile(source.m_file);
-        }
 
         template<typename Impl>
         explicit Model(
                 Impl& vis,
                 QObject* parent) :
-            Process::StateProcess{vis, parent}
+            Process::ProcessModel{vis, parent}
         {
             vis.writeTo(*this);
         }
@@ -42,7 +34,7 @@ class Model :
         const Preset& preset() const
         { return m_preset; }
 
-    signals:
+    Q_SIGNALS:
         void fileChanged();
 
     private:

@@ -1,13 +1,13 @@
 #pragma once
 #include <PresetState/Model.hpp>
 #include <Process/Inspector/ProcessInspectorWidgetDelegate.hpp>
-#include <iscore/command/Dispatchers/CommandDispatcher.hpp>
+#include <score/command/Dispatchers/CommandDispatcher.hpp>
 #include <QString>
 class QLineEdit;
-namespace iscore {
+namespace score {
 class Document;
 struct DocumentContext;
-}  // namespace iscore
+}  // namespace score
 
 namespace PresetState
 {
@@ -15,12 +15,12 @@ class Model;
 namespace Inspector
 {
 class Widget final :
-        public Process::StateProcessInspectorWidgetDelegate_T<PresetState::Model>
+        public Process::InspectorWidgetDelegate_T<PresetState::Model>
 {
     public:
         explicit Widget(
                 const PresetState::Model& object,
-                const iscore::DocumentContext& context,
+                const score::DocumentContext& context,
                 QWidget* parent);
 
     private:

@@ -2,9 +2,9 @@
 #include <Process/ProcessFactory.hpp>
 #include <PresetState/Model.hpp>
 #include <PresetState/Metadata.hpp>
-#include <iscore/serialization/VisitorCommon.hpp>
-#include <Process/StateProcessFactory.hpp>
+#include <score/serialization/VisitorCommon.hpp>
+#include <Process/GenericProcessFactory.hpp>
 namespace PresetState
 {
-using Factory = Process::StateProcessFactory_T<Model>;
+using Factory = Process::ProcessFactory_T<Model>;
 }

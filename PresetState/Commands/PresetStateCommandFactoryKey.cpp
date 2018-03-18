@@ -1,5 +1,5 @@
 #include "PresetStateCommandFactoryKey.hpp"
-#include <iscore/command/Command.hpp>
+#include <score/command/Command.hpp>
 
 const CommandGroupKey& PresetState::CommandFactoryName() {
     static const CommandGroupKey key{"PresetState"};

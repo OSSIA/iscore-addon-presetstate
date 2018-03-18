@@ -1,10 +1,10 @@
 cmake_minimum_required(VERSION 3.1)
-if(NOT TARGET iscore_plugin_engine)
+if(NOT TARGET score_plugin_engine)
     return()
 endif()
-project(iscore_addon_presetstate LANGUAGES CXX)
+project(score_addon_presetstate LANGUAGES CXX)
 
-iscore_common_setup()
+score_common_setup()
 
 # Packages
 find_package(Qt5 5.3 REQUIRED COMPONENTS Core Widgets)
@@ -20,7 +20,7 @@ set(HDRS
   "${CMAKE_CURRENT_SOURCE_DIR}/PresetState/Executor/StateComponent.hpp"
   "${CMAKE_CURRENT_SOURCE_DIR}/PresetState/Commands/SetPresetFile.hpp"
   "${CMAKE_CURRENT_SOURCE_DIR}/PresetState/Commands/PresetStateCommandFactoryKey.hpp"
-  "${CMAKE_CURRENT_SOURCE_DIR}/iscore_addon_presetstate.hpp"
+  "${CMAKE_CURRENT_SOURCE_DIR}/score_addon_presetstate.hpp"
 )
 set(SRCS
   "${CMAKE_CURRENT_SOURCE_DIR}/PresetState/Model.cpp"
@@ -29,14 +29,15 @@ set(SRCS
   "${CMAKE_CURRENT_SOURCE_DIR}/PresetState/Executor/StateComponent.cpp"
   "${CMAKE_CURRENT_SOURCE_DIR}/PresetState/Commands/SetPresetFile.cpp"
   "${CMAKE_CURRENT_SOURCE_DIR}/PresetState/Commands/PresetStateCommandFactoryKey.cpp"
-  "${CMAKE_CURRENT_SOURCE_DIR}/iscore_addon_presetstate.cpp"
+  "${CMAKE_CURRENT_SOURCE_DIR}/score_addon_presetstate.cpp"
 )
 
 add_library(${PROJECT_NAME} ${SRCS} ${HDRS})
+score_moc_headers(${PROJECT_NAME} "${HDRS}")
 
-iscore_generate_command_list_file(${PROJECT_NAME} "${HDRS}")
+score_generate_command_list_file(${PROJECT_NAME} "${HDRS}")
 
 target_link_libraries(${PROJECT_NAME} PUBLIC
   Qt5::Core Qt5::Widgets
-  iscore_lib_process iscore_lib_inspector iscore_plugin_engine)
-setup_iscore_plugin(${PROJECT_NAME})
+  score_lib_process score_lib_inspector score_plugin_engine)
+setup_score_plugin(${PROJECT_NAME})

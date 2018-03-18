@@ -8,9 +8,9 @@ namespace PresetState
 namespace Inspector
 {
 class Factory final :
-        public Process::StateProcessInspectorWidgetDelegateFactory_T<Model, Widget>
+        public Process::InspectorWidgetDelegateFactory_T<Model, Widget>
 {
-        ISCORE_CONCRETE("577bc362-e279-488c-b0ac-5972851ea291")
+        SCORE_CONCRETE("577bc362-e279-488c-b0ac-5972851ea291")
 };
 }
 }

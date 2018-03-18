@@ -2,8 +2,8 @@
 #include <algorithm>
 
 #include "SetPresetFile.hpp"
-#include <iscore/serialization/DataStreamVisitor.hpp>
-#include <iscore/model/path/PathSerialization.hpp>
+#include <score/serialization/DataStreamVisitor.hpp>
+#include <score/model/path/PathSerialization.hpp>
 namespace PresetState
 {
 SetPresetFile::SetPresetFile(
@@ -15,12 +15,12 @@ SetPresetFile::SetPresetFile(
     m_old = model.file();
 }
 
-void SetPresetFile::undo(const iscore::DocumentContext& ctx) const
+void SetPresetFile::undo(const score::DocumentContext& ctx) const
 {
     m_model.find(ctx).setFile(m_old);
 }
 
-void SetPresetFile::redo(const iscore::DocumentContext& ctx) const
+void SetPresetFile::redo(const score::DocumentContext& ctx) const
 {
     m_model.find(ctx).setFile(m_new);
 }

@@ -1,5 +1,5 @@
 #include "Model.hpp"
-#include <iscore/serialization/VisitorCommon.hpp>
+#include <score/serialization/VisitorCommon.hpp>
 #include <QFile>
 
 template <>
@@ -35,8 +35,9 @@ void JSONObjectWriter::write(PresetState::Model& proc)
 
 namespace PresetState
 {
-Model::Model(const Id<Process::StateProcess> &id, QObject *parent):
-    Process::StateProcess{id, Metadata<ObjectKey_k, Model>::get(), parent}
+Model::Model(
+    TimeVal t, const Id<Process::ProcessModel> &id, QObject *parent):
+    Process::ProcessModel{t, id, Metadata<ObjectKey_k, Model>::get(), parent}
 {
 
 }
@@ -51,7 +52,7 @@ void Model::setFile(const QString& script)
         m_preset = loadPresetFromJson(f.readAll());
     }
 
-    emit fileChanged();
+    fileChanged();
 }
 
 }

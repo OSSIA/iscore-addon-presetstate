@@ -1,7 +1,7 @@
 #include "Widget.hpp"
 #include <PresetState/Model.hpp>
 #include <PresetState/Commands/SetPresetFile.hpp>
-#include <iscore/document/DocumentContext.hpp>
+#include <score/document/DocumentContext.hpp>
 #include <QVBoxLayout>
 #include <QLineEdit>
 
@@ -11,9 +11,9 @@ namespace Inspector
 {
 Widget::Widget(
         const PresetState::Model& model,
-        const iscore::DocumentContext& doc,
+        const score::DocumentContext& doc,
         QWidget* parent) :
-    StateProcessInspectorWidgetDelegate_T {model, parent},
+    InspectorWidgetDelegate_T {model, parent},
     m_dispatcher{doc.commandStack}
 {
     setObjectName("PresetStateInspectorWidget");
