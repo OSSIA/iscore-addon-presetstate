@@ -13,18 +13,10 @@
 #include <score/plugins/customfactory/FactoryInterface.hpp>
 
 class score_addon_presetstate final:
-        public QObject,
         public score::Plugin_QtInterface,
         public score::FactoryInterface_QtInterface,
         public score::CommandFactory_QtInterface
 {
-        Q_OBJECT
-        Q_PLUGIN_METADATA(IID FactoryInterface_QtInterface_iid)
-        Q_INTERFACES(
-                score::Plugin_QtInterface
-                score::FactoryInterface_QtInterface
-                score::CommandFactory_QtInterface
-                )
   SCORE_PLUGIN_METADATA(1, "8da162be-f8fb-4958-a49a-9e9571c5d969")
 
     public:

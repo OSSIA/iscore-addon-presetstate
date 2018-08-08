@@ -23,12 +23,12 @@
 
 ////// Component ////
 //StateProcessComponent::StateProcessComponent(
-//        Engine::Execution::StateComponent& parentConstraint,
+//        Execution::StateComponent& parentConstraint,
 //        Model& element,
-//        const Engine::Execution::Context& ctx,
+//        const Execution::Context& ctx,
 //        const Id<score::Component>& id,
 //        QObject* parent):
-//    Engine::Execution::StateProcessComponent_T<PresetState::Model>{
+//    Execution::StateProcessComponent_T<PresetState::Model>{
 //        parentConstraint, element, ctx, id, "PresetStateComponent", parent}
 //{
 //    ossia::state state;
@@ -41,7 +41,7 @@
 
 //ossia::state_element StateProcessComponent::make(
 //        Process::StateProcess &proc,
-//        const Engine::Execution::Context &ctx)
+//        const Execution::Context &ctx)
 //{
 //    ossia::state state;
 //    convert(static_cast<Model&>(proc).preset(), state, ctx.devices.list());

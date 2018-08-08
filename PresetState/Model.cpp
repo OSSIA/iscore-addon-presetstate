@@ -2,6 +2,8 @@
 #include <score/serialization/VisitorCommon.hpp>
 #include <QFile>
 
+#include <wobjectimpl.h>
+W_OBJECT_IMPL(PresetState::Model)
 template <>
 void DataStreamReader::read(
         const PresetState::Model& proc)

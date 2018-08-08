@@ -7,7 +7,7 @@ namespace PresetState
 class Model :
         public Process::ProcessModel
 {
-        Q_OBJECT
+        W_OBJECT(Model)
         SCORE_SERIALIZE_FRIENDS
         PROCESS_METADATA_IMPL(Model)
 
@@ -34,8 +34,7 @@ class Model :
         const Preset& preset() const
         { return m_preset; }
 
-    Q_SIGNALS:
-        void fileChanged();
+        void fileChanged() W_SIGNAL(fileChanged);
 
     private:
         QString prettyName() const override

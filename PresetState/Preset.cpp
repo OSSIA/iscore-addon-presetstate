@@ -21,7 +21,7 @@ static void loadPreset_rec(
     }
     else
     {
-      preset.emplace_back(State::AddressAccessor{next}, State::convert::fromQJsonValue(val));
+      preset.emplace_back(State::Message{State::AddressAccessor{next}, State::convert::fromQJsonValue(val)});
     }
   }
 }

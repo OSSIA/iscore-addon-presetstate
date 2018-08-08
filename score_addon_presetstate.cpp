@@ -12,8 +12,7 @@
 
 #include <unordered_map>
 #include <score_addon_presetstate_commands_files.hpp>
-score_addon_presetstate::score_addon_presetstate() :
-    QObject {}
+score_addon_presetstate::score_addon_presetstate()
 {
 }
 
@@ -32,7 +31,7 @@ std::vector<std::unique_ptr<score::InterfaceBase>> score_addon_presetstate::fact
              PresetState::Factory>,
         FW<Inspector::InspectorWidgetFactory,
              PresetState::Inspector::Factory>
-        //, FW<Engine::Execution::ProcessComponentFactory, PresetState::Executor::ProcessComponentFactory>
+        //, FW<Execution::ProcessComponentFactory, PresetState::Executor::ProcessComponentFactory>
     >(ctx, key);
 }
 
@@ -43,12 +42,12 @@ std::pair<const CommandGroupKey, CommandGeneratorMap> score_addon_presetstate::m
         PresetState::CommandFactoryName(),
                 CommandGeneratorMap{}};
 
-    using Types = TypeList<
-#include <score_addon_presetstate_commands.hpp>
-      >;
-    for_each_type<Types>(score::commands::FactoryInserter{cmds.second});
-
+    ossia::for_each_type<
+    #include <score_addon_presetstate_commands.hpp>
+        >(score::commands::FactoryInserter{cmds.second});
 
     return cmds;
 }
 
+#include <score/plugins/PluginInstances.hpp>
+SCORE_EXPORT_PLUGIN(score_addon_presetstate)
